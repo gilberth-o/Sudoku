@@ -4,6 +4,7 @@ A Naruto-inspired, responsive Sudoku site built with plain HTML, CSS, and
 JavaScript. The landing page is `index.html`, the playable Sudoku games live
 on their own page at `puzzle.html`, local stats are shown at `progress.html`,
 and appearance/accessibility preferences are on `settings.html`.
+The shared browser-tab logo is `favicon.svg`.
 
 Play as often as you like: choose Easy, Medium, or Hard, then use **Next game**
 to get another uniquely solvable puzzle at the selected difficulty. Choose a

@@ -1,13 +1,17 @@
-# Stillmind Sudoku
+# Shinobi Sudoku
 
-A calm, responsive Sudoku homepage and playable daily puzzle built with plain
-HTML, CSS, and JavaScript. Choose a square and enter numbers with the number
-pad or keyboard. Use **Check puzzle** to see your progress, or **Clear entries**
-to start again.
+A Naruto-inspired, responsive Sudoku site built with plain HTML, CSS, and
+JavaScript. The landing page is `index.html`; the playable daily puzzle lives
+on its own page at `puzzle.html`.
+
+On the puzzle page, choose a square and enter numbers with the number pad or
+keyboard. Use **Check puzzle** to see your progress, or **Reset mission** to
+start again.
 
 ## Run locally
 
-Open `index.html` in a browser. No build step or dependencies are required.
+Open `index.html` in a browser and select **Today's mission** to play. No build
+step or dependencies are required.
 
 ## Deploy to Vercel
 

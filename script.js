@@ -243,19 +243,5 @@ document.addEventListener("keydown", (event) => {
 document.querySelector("#check-button").addEventListener("click", checkPuzzle);
 document.querySelector("#clear-button").addEventListener("click", clearEntries);
 
-document.querySelectorAll("[data-start-game]").forEach((link) => {
-  link.addEventListener("click", () => {
-    startTimer();
-    const firstEmptyCell = board.querySelector(".sudoku-cell:not(.given)");
-    if (firstEmptyCell) {
-      selectedCell = {
-        row: Number(firstEmptyCell.dataset.row),
-        column: Number(firstEmptyCell.dataset.column),
-      };
-      updateBoard();
-    }
-  });
-});
-
 renderBoard();
 updateBoard();

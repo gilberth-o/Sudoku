@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Take on today's Shinobi Sudoku mission. Focus your mind, find the numbers, and complete the puzzle."
+    />
+    <meta name="theme-color" content="#f5eee2" />
+    <title>Today's Mission — Shinobi Sudoku</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="puzzle-page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Shinobi Sudoku home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span class="brand-title">SHINOBI <span>SUDOKU</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">← Home</a>
+        <a class="nav-cta" href="index.html#how-to-play">How to play</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="mission-intro" aria-labelledby="mission-title">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Focus your chakra</p>
+        <h1 id="mission-title">Today's <span>mission.</span></h1>
+        <p>Stay sharp, trust your training, and fill every square.</p>
+      </section>
+
+      <section class="play-section" id="play" aria-labelledby="play-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Your training begins now</p>
+            <h2 id="play-title">The daily challenge</h2>
+          </div>
+          <span class="difficulty-pill"><span aria-hidden="true">✳</span> Genin level</span>
+        </div>
+
+        <div class="game-card">
+          <div class="game-topline">
+            <span class="game-date">Today's shinobi training</span>
+            <div class="game-stats" aria-label="Game statistics">
+              <span><span aria-hidden="true">◷</span> <span id="timer">00:00</span></span>
+              <span><span aria-hidden="true">✦</span> <span id="mistakes">0</span> mistakes</span>
+            </div>
+          </div>
+          <div
+            class="sudoku-board"
+            id="sudoku-board"
+            role="group"
+            aria-label="Sudoku board"
+          ></div>
+          <div class="number-pad" aria-label="Choose a number">
+            <button type="button" class="number-button" data-number="1" aria-label="Enter 1">1</button>
+            <button type="button" class="number-button" data-number="2" aria-label="Enter 2">2</button>
+            <button type="button" class="number-button" data-number="3" aria-label="Enter 3">3</button>
+            <button type="button" class="number-button" data-number="4" aria-label="Enter 4">4</button>
+            <button type="button" class="number-button" data-number="5" aria-label="Enter 5">5</button>
+            <button type="button" class="number-button" data-number="6" aria-label="Enter 6">6</button>
+            <button type="button" class="number-button" data-number="7" aria-label="Enter 7">7</button>
+            <button type="button" class="number-button" data-number="8" aria-label="Enter 8">8</button>
+            <button type="button" class="number-button" data-number="9" aria-label="Enter 9">9</button>
+            <button type="button" class="erase-button" data-erase aria-label="Erase selected square">⌫</button>
+          </div>
+          <div class="game-bottom">
+            <p class="game-message" id="game-message" aria-live="polite">Choose a square and make your move.</p>
+            <div class="game-actions">
+              <button type="button" class="button button-quiet" id="clear-button">Reset mission</button>
+              <button type="button" class="button button-check" id="check-button">Check puzzle <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+        </div>
+        <p class="keyboard-hint">Tip: Select a square, then use your keyboard or the number pad.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="index.html" aria-label="Shinobi Sudoku home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span class="brand-title">SHINOBI <span>SUDOKU</span></span>
+      </a>
+      <p>Believe it. One square at a time.</p>
+      <a href="index.html">← Back to home</a>
+    </footer>
+  </body>
+</html>

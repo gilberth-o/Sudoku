@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="See your Sudoku achievements and track your shinobi training progress."
+    />
+    <meta name="theme-color" content="#f5eee2" />
+    <title>My Progress — Shinobi Sudoku</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="progress.js" defer></script>
+  </head>
+  <body class="progress-page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Shinobi Sudoku home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span class="brand-title">SHINOBI <span>SUDOKU</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a class="nav-cta" href="puzzle.html">Today's mission <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="progress-intro" aria-labelledby="progress-title">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Your shinobi journey</p>
+        <h1 id="progress-title">My <span>Progress.</span></h1>
+        <p>See your achievements and track your improvement as you continue training.</p>
+      </section>
+
+      <section class="statistics-card" aria-labelledby="statistics-title">
+        <div class="statistics-heading">
+          <span class="statistics-icon" aria-hidden="true">▥</span>
+          <div>
+            <h2 id="statistics-title">Your Statistics</h2>
+            <p>Overview of your completed puzzles.</p>
+          </div>
+        </div>
+        <div class="statistics-grid" aria-live="polite">
+          <div class="statistic">
+            <strong id="puzzles-solved">0</strong>
+            <span>Puzzles Solved</span>
+          </div>
+          <div class="statistic">
+            <strong id="best-time">—</strong>
+            <span>Best Time</span>
+          </div>
+          <div class="statistic">
+            <strong id="current-streak">0</strong>
+            <span>Current Streak</span>
+          </div>
+        </div>
+        <p class="storage-note" id="storage-note" aria-live="polite">
+          Your progress is saved on this device.
+        </p>
+      </section>
+
+      <a class="back-home-button" href="index.html"><span aria-hidden="true">←</span> Back to Home</a>
+    </main>
+  </body>
+</html>

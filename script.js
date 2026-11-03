@@ -24,6 +24,7 @@ const solution = [
   "345286179",
 ];
 
+const PROGRESS_STORAGE_KEY = "shinobi-sudoku-progress";
 const board = document.querySelector("#sudoku-board");
 const timerDisplay = document.querySelector("#timer");
 const mistakesDisplay = document.querySelector("#mistakes");
@@ -35,6 +36,39 @@ let secondsElapsed = 0;
 let timerInterval = null;
 let gameStarted = false;
 let gameComplete = false;
+
+function getLocalDateString(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function savePuzzleProgress(timeInSeconds) {
+  const savedProgress = window.localStorage.getItem(PROGRESS_STORAGE_KEY);
+  const progress = savedProgress
+    ? JSON.parse(savedProgress)
+    : { completedDates: [], bestTimeSeconds: null };
+
+  if (
+    !progress ||
+    !Array.isArray(progress.completedDates) ||
+    (progress.bestTimeSeconds !== null &&
+      (!Number.isInteger(progress.bestTimeSeconds) || progress.bestTimeSeconds < 0))
+  ) {
+    throw new Error("Saved progress has an unexpected format.");
+  }
+
+  const today = getLocalDateString(new Date());
+  if (!progress.completedDates.includes(today)) {
+    progress.completedDates.push(today);
+  }
+  if (progress.bestTimeSeconds === null || timeInSeconds < progress.bestTimeSeconds) {
+    progress.bestTimeSeconds = timeInSeconds;
+  }
+
+  window.localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
+}
 
 function renderBoard() {
   const fragment = document.createDocumentFragment();
@@ -159,6 +193,13 @@ function checkForCompletion() {
     window.clearInterval(timerInterval);
     message.textContent = `Beautifully done. You found your flow in ${timerDisplay.textContent}.`;
     message.className = "game-message success";
+    try {
+      savePuzzleProgress(secondsElapsed);
+    } catch (error) {
+      console.error("Could not save Sudoku progress.", error);
+      message.textContent += " Your progress could not be saved on this device.";
+      message.className = "game-message error-message";
+    }
   }
 }
 

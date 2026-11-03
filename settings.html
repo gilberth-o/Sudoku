@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Customize Shinobi Sudoku's appearance and accessibility settings."
+    />
+    <meta name="theme-color" content="#f5eee2" />
+    <title>Settings — Shinobi Sudoku</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="settings.js" defer></script>
+  </head>
+  <body class="settings-page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Shinobi Sudoku home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span class="brand-title">SHINOBI <span>SUDOKU</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="progress.html">Progress</a>
+        <a class="nav-cta" href="puzzle.html">Play Sudoku <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="settings-intro" aria-labelledby="settings-title">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Make the game yours</p>
+        <h1 id="settings-title">Settings</h1>
+        <p>Customize your Sudoku experience to make playing more comfortable and accessible.</p>
+      </section>
+
+      <form class="settings-form" id="settings-form">
+        <section class="settings-card" aria-labelledby="appearance-title">
+          <div class="settings-card-heading">
+            <span class="settings-icon" aria-hidden="true">◐</span>
+            <div>
+              <h2 id="appearance-title">Appearance</h2>
+              <p>Choose how Shinobi Sudoku looks.</p>
+            </div>
+          </div>
+          <div class="setting-row">
+            <label for="theme-setting">Display Theme</label>
+            <select id="theme-setting" name="theme">
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+              <option value="shinobi">Shinobi</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="settings-card" aria-labelledby="accessibility-title">
+          <div class="settings-card-heading">
+            <span class="settings-icon" aria-hidden="true">♟</span>
+            <div>
+              <h2 id="accessibility-title">Accessibility</h2>
+              <p>Adjust the game to suit your needs.</p>
+            </div>
+          </div>
+          <div class="setting-row">
+            <label for="number-size-setting">Number Size</label>
+            <select id="number-size-setting" name="numberSize">
+              <option value="normal">Normal</option>
+              <option value="large">Large</option>
+            </select>
+          </div>
+          <label class="setting-row setting-toggle" for="voice-setting">
+            <span>Voice Assistance</span>
+            <input id="voice-setting" name="voiceAssistance" type="checkbox" />
+          </label>
+          <label class="setting-row setting-toggle" for="focus-setting">
+            <span>Focus Lens</span>
+            <input id="focus-setting" name="focusLens" type="checkbox" checked />
+          </label>
+          <label class="setting-row setting-toggle" for="relax-setting">
+            <span>Relax Mode</span>
+            <input id="relax-setting" name="relaxMode" type="checkbox" />
+          </label>
+        </section>
+        <p class="settings-status" id="settings-status" role="status" aria-live="polite">
+          Your settings are saved on this device.
+        </p>
+      </form>
+
+      <a class="back-home-button" href="index.html"><span aria-hidden="true">←</span> Back to Home</a>
+    </main>
+  </body>
+</html>

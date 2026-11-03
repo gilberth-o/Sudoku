@@ -1679,3 +1679,553 @@ h2 {
     font-size: 9px;
   }
 }
+
+.settings-intro {
+  padding: 48px 0 30px;
+}
+
+.settings-intro .eyebrow {
+  margin-bottom: 12px;
+}
+
+.settings-intro h1 {
+  margin: 0 0 9px;
+  font-size: clamp(44px, 6vw, 64px);
+}
+
+.settings-intro > p:last-child {
+  max-width: 680px;
+  margin-bottom: 0;
+  color: #716d68;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.settings-form {
+  display: grid;
+  gap: 20px;
+}
+
+.settings-card {
+  padding: 27px 29px;
+  border: 1px solid #e8d9c7;
+  border-radius: 17px;
+  background: #fffaf1;
+  box-shadow: 0 13px 35px rgb(81 54 37 / 6%);
+}
+
+.settings-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.settings-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 14px;
+  color: #b3542f;
+  background: #f7e5d1;
+  font-size: 23px;
+}
+
+.settings-card-heading h2 {
+  margin: 0 0 5px;
+  color: #292c2e;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+}
+
+.settings-card-heading p {
+  margin: 0;
+  color: #716d68;
+  font-size: 13px;
+}
+
+.setting-row {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  color: #353b3c;
+  font-size: 14px;
+}
+
+.setting-row + .setting-row {
+  border-top: 1px solid #e9e3d8;
+}
+
+.setting-row select {
+  width: min(190px, 45%);
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid #e3d9cc;
+  border-radius: 9px;
+  color: #363b3c;
+  background: #fffdf8;
+  font: inherit;
+}
+
+.setting-row select:focus-visible,
+.setting-toggle input:focus-visible {
+  outline: 3px solid #d88a5f;
+  outline-offset: 3px;
+}
+
+.setting-toggle {
+  cursor: pointer;
+}
+
+.setting-toggle input {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  accent-color: #e85d24;
+  cursor: pointer;
+}
+
+.settings-status {
+  margin: 0;
+  color: #716d68;
+  font-size: 12px;
+}
+
+.settings-status.settings-error {
+  color: #a33f31;
+}
+
+.settings-page main {
+  min-height: calc(100vh - 166px);
+}
+
+body.large-numbers .sudoku-cell {
+  font-size: clamp(18px, 4vw, 25px);
+}
+
+body.focus-lens-off .sudoku-cell.related,
+body.focus-lens-off .sudoku-cell.same-number {
+  background: #fffaf1;
+}
+
+body.focus-lens-off .sudoku-cell.selected {
+  background: #f8dfc9;
+}
+
+body.relax-mode .game-stats > span:last-child {
+  visibility: hidden;
+}
+
+body[data-theme="light"] {
+  color: #26352d;
+  background: #f7f8f4;
+}
+
+body[data-theme="light"] .site-header,
+body[data-theme="light"] .how-section,
+body[data-theme="light"] .play-section,
+body[data-theme="light"] .site-footer {
+  border-color: #e3e7df;
+}
+
+body[data-theme="light"] .eyebrow,
+body[data-theme="light"] .site-nav .nav-cta,
+body[data-theme="light"] .difficulty-pill,
+body[data-theme="light"] .site-footer > a:last-child {
+  color: #547866;
+}
+
+body[data-theme="light"] h1,
+body[data-theme="light"] h2,
+body[data-theme="light"] .statistics-heading h2,
+body[data-theme="light"] .how-step h3 {
+  color: #26352d;
+}
+
+body[data-theme="light"] h1 span,
+body[data-theme="light"] .brand-title > span {
+  color: #6d8b72;
+}
+
+body[data-theme="light"] .button-primary,
+body[data-theme="light"] .button-check,
+body[data-theme="light"] .difficulty-option[aria-pressed="true"] {
+  border-color: #355b49;
+  background: #355b49;
+}
+
+body[data-theme="light"] .button-primary:hover,
+body[data-theme="light"] .button-check:hover {
+  background: #294a3a;
+}
+
+body[data-theme="light"] .hero-art::before {
+  background: #e9eee5;
+}
+
+body[data-theme="light"] .art-sun {
+  background: #9daf94;
+}
+
+body[data-theme="light"] .preview-card,
+body[data-theme="light"] .game-card,
+body[data-theme="light"] .settings-card,
+body[data-theme="light"] .statistics-card {
+  border-color: #e3e7df;
+  background: #fffefa;
+}
+
+body[data-theme="light"] .sudoku-cell,
+body[data-theme="light"] .difficulty-option {
+  color: #49664e;
+  background: #fffefa;
+}
+
+body[data-theme="light"] .sudoku-cell.given {
+  color: #35483a;
+  background: #f0f3ed;
+}
+
+body[data-theme="light"] .sudoku-cell.related {
+  background: #f0f3ed;
+}
+
+body[data-theme="light"] .sudoku-cell.same-number,
+body[data-theme="light"] .sudoku-cell.selected {
+  background: #e4ecdf;
+}
+
+body[data-theme="light"] .difficulty-option[aria-pressed="true"] {
+  color: #fffefa;
+}
+
+body[data-theme="light"] .number-button,
+body[data-theme="light"] .erase-button,
+body[data-theme="light"] .button-next,
+body[data-theme="light"] .statistics-icon,
+body[data-theme="light"] .settings-icon {
+  color: #49664e;
+  background: #edf2e9;
+}
+
+body[data-theme="light"] .difficulty-pill {
+  border-color: #e2e8de;
+  background: #f2f5ee;
+}
+
+body[data-theme="light"] .back-home-button,
+body[data-theme="light"] .setting-row select {
+  border-color: #dce4dc;
+  color: #26352d;
+  background: #fffefa;
+}
+
+body[data-theme="dark"] {
+  color-scheme: dark;
+  color: #eee8dd;
+  background:
+    radial-gradient(ellipse at 82% 17%, rgb(91 62 47 / 28%), transparent 29rem),
+    #202528;
+}
+
+body[data-theme="dark"] h1,
+body[data-theme="dark"] h2,
+body[data-theme="dark"] .statistics-heading h2,
+body[data-theme="dark"] .how-step h3,
+body[data-theme="dark"] .brand-title,
+body[data-theme="dark"] .setting-row {
+  color: #eee8dd;
+}
+
+body[data-theme="dark"] h1 span,
+body[data-theme="dark"] .brand-title > span {
+  color: #f18a54;
+}
+
+body[data-theme="dark"] .site-header,
+body[data-theme="dark"] .how-section,
+body[data-theme="dark"] .play-section,
+body[data-theme="dark"] .site-footer,
+body[data-theme="dark"] .game-bottom,
+body[data-theme="dark"] .statistics-heading,
+body[data-theme="dark"] .setting-row + .setting-row,
+body[data-theme="dark"] .statistic + .statistic {
+  border-color: #41474a;
+}
+
+body[data-theme="dark"] .site-nav,
+body[data-theme="dark"] .site-footer,
+body[data-theme="dark"] .site-nav .nav-cta,
+body[data-theme="dark"] .hero-description,
+body[data-theme="dark"] .text-link,
+body[data-theme="dark"] .mission-intro > p:last-child,
+body[data-theme="dark"] .progress-intro > p:last-child,
+body[data-theme="dark"] .settings-intro > p:last-child,
+body[data-theme="dark"] .how-step p,
+body[data-theme="dark"] .game-date,
+body[data-theme="dark"] .game-stats,
+body[data-theme="dark"] .game-message,
+body[data-theme="dark"] .keyboard-hint,
+body[data-theme="dark"] .statistics-heading p,
+body[data-theme="dark"] .statistic span,
+body[data-theme="dark"] .storage-note,
+body[data-theme="dark"] .settings-card-heading p,
+body[data-theme="dark"] .settings-status,
+body[data-theme="dark"] .difficulty-picker-label {
+  color: #bcb8af;
+}
+
+body[data-theme="dark"] .eyebrow,
+body[data-theme="dark"] .difficulty-pill,
+body[data-theme="dark"] .site-footer > a:last-child {
+  color: #f18a54;
+}
+
+body[data-theme="dark"] .brand-mark span {
+  background: #c4c0b6;
+}
+
+body[data-theme="dark"] .brand-mark span:nth-child(2),
+body[data-theme="dark"] .brand-mark span:nth-child(3) {
+  background: #e85d24;
+}
+
+body[data-theme="dark"] .preview-card,
+body[data-theme="dark"] .game-card,
+body[data-theme="dark"] .settings-card,
+body[data-theme="dark"] .statistics-card,
+body[data-theme="dark"] .floating-note,
+body[data-theme="dark"] .back-home-button {
+  border-color: #44494a;
+  color: #eee8dd;
+  background: #2b3032;
+}
+
+body[data-theme="dark"] .hero-art::before {
+  background: #383333;
+}
+
+body[data-theme="dark"] .art-sun {
+  background: #e85d24;
+  opacity: 0.19;
+}
+
+body[data-theme="dark"] .headband-banner {
+  border-color: #66605a;
+  background: linear-gradient(90deg, #64615b, #aaa69b 18%, #807b72 82%, #55534e);
+  color: #202528;
+}
+
+body[data-theme="dark"] .headband-symbol {
+  border-color: #57544e;
+  color: #202528;
+}
+
+body[data-theme="dark"] .preview-label,
+body[data-theme="dark"] .preview-footer,
+body[data-theme="dark"] .preview-time {
+  color: #c7b9a7;
+}
+
+body[data-theme="dark"] .preview-grid {
+  border-color: #79756d;
+}
+
+body[data-theme="dark"] .preview-grid span {
+  border-color: #45494a;
+  color: #f18a54;
+}
+
+body[data-theme="dark"] .preview-grid span:nth-child(3n),
+body[data-theme="dark"] .preview-grid span:nth-child(n + 13):nth-child(-n + 18) {
+  border-color: #79756d;
+}
+
+body[data-theme="dark"] .preview-grid span:nth-child(4),
+body[data-theme="dark"] .preview-grid span:nth-child(10),
+body[data-theme="dark"] .preview-grid span:nth-child(11),
+body[data-theme="dark"] .preview-grid span:nth-child(12),
+body[data-theme="dark"] .preview-grid span:nth-child(14),
+body[data-theme="dark"] .preview-grid span:nth-child(15),
+body[data-theme="dark"] .preview-grid span:nth-child(22),
+body[data-theme="dark"] .preview-grid span:nth-child(28),
+body[data-theme="dark"] .preview-grid span:nth-child(29),
+body[data-theme="dark"] .preview-grid span:nth-child(30),
+body[data-theme="dark"] .preview-grid span:nth-child(31),
+body[data-theme="dark"] .preview-grid span:nth-child(34) {
+  color: #eee8dd;
+  background: #383a39;
+}
+
+body[data-theme="dark"] .sudoku-board {
+  border-color: #8c877c;
+  background: #2b3032;
+}
+
+body[data-theme="dark"] .sudoku-cell {
+  border-color: #45494a;
+  color: #f18a54;
+  background: #2b3032;
+}
+
+body[data-theme="dark"] .sudoku-cell:nth-child(3n),
+body[data-theme="dark"] .sudoku-cell:nth-child(n + 19):nth-child(-n + 27),
+body[data-theme="dark"] .sudoku-cell:nth-child(n + 46):nth-child(-n + 54) {
+  border-color: #8c877c;
+}
+
+body[data-theme="dark"] .sudoku-cell.given {
+  color: #eee8dd;
+  background: #34393a;
+}
+
+body[data-theme="dark"] .sudoku-cell.related {
+  background: #383634;
+}
+
+body[data-theme="dark"] .sudoku-cell.same-number,
+body[data-theme="dark"] .sudoku-cell.selected {
+  background: #513b30;
+}
+
+body[data-theme="dark"] .sudoku-cell.error {
+  color: #ffaaa0;
+  background: #563a38;
+}
+
+body[data-theme="dark"] .number-button,
+body[data-theme="dark"] .erase-button,
+body[data-theme="dark"] .difficulty-option,
+body[data-theme="dark"] .button-next,
+body[data-theme="dark"] .difficulty-pill,
+body[data-theme="dark"] .statistics-icon,
+body[data-theme="dark"] .settings-icon {
+  border-color: #494747;
+  color: #f1a071;
+  background: #383635;
+}
+
+body[data-theme="dark"] .difficulty-option[aria-pressed="true"],
+body[data-theme="dark"] .button-primary,
+body[data-theme="dark"] .button-check {
+  border-color: #e85d24;
+  color: #fffaf1;
+  background: #c94e1f;
+}
+
+body[data-theme="dark"] .difficulty-option[aria-pressed="true"]:hover,
+body[data-theme="dark"] .button-primary:hover,
+body[data-theme="dark"] .button-check:hover {
+  background: #a9411b;
+}
+
+body[data-theme="dark"] .difficulty-option:hover,
+body[data-theme="dark"] .number-button:hover,
+body[data-theme="dark"] .erase-button:hover,
+body[data-theme="dark"] .button-next:hover,
+body[data-theme="dark"] .button-quiet:hover,
+body[data-theme="dark"] .back-home-button:hover {
+  background: #46403b;
+}
+
+body[data-theme="dark"] .setting-row select {
+  border-color: #494747;
+  color: #eee8dd;
+  background: #202528;
+}
+
+body[data-theme="dark"] .statistics-icon,
+body[data-theme="dark"] .settings-icon {
+  color: #f18a54;
+}
+
+body[data-theme="dark"] .statistic strong {
+  color: #eee8dd;
+}
+
+body[data-theme="dark"] .button-quiet {
+  color: #c3bdb3;
+}
+
+body[data-theme="dark"] .button-next {
+  color: #f1a071;
+}
+
+body.focus-lens-off .sudoku-cell.related,
+body.focus-lens-off .sudoku-cell.same-number,
+body[data-theme="light"].focus-lens-off .sudoku-cell.related,
+body[data-theme="light"].focus-lens-off .sudoku-cell.same-number {
+  background: #fffaf1;
+}
+
+body[data-theme="dark"].focus-lens-off .sudoku-cell.related,
+body[data-theme="dark"].focus-lens-off .sudoku-cell.same-number {
+  background: #2b3032;
+}
+
+@media (max-width: 760px) {
+  .settings-intro {
+    padding-top: 38px;
+  }
+
+  .settings-card {
+    padding: 24px 21px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-intro {
+    padding: 34px 0 25px;
+  }
+
+  .settings-intro h1 {
+    font-size: 45px;
+    letter-spacing: -2px;
+  }
+
+  .settings-intro > p:last-child {
+    font-size: 14px;
+  }
+
+  .settings-form {
+    gap: 14px;
+  }
+
+  .settings-card {
+    padding: 20px 14px;
+    border-radius: 13px;
+  }
+
+  .settings-card-heading {
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
+  .settings-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .settings-card-heading h2 {
+    font-size: 19px;
+  }
+
+  .settings-card-heading p {
+    font-size: 11px;
+  }
+
+  .setting-row {
+    min-height: 53px;
+    font-size: 12px;
+  }
+
+  .setting-row select {
+    width: 45%;
+    min-height: 38px;
+    font-size: 12px;
+  }
+}

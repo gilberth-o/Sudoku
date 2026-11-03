@@ -229,7 +229,9 @@ function updateBoard() {
     const row = Number(cell.dataset.row);
     const column = Number(cell.dataset.column);
     const selected = selectedCell?.row === row && selectedCell?.column === column;
+    const focusLensEnabled = window.shinobiSettings?.focusLens !== false;
     const related =
+      focusLensEnabled &&
       selectedCell &&
       (selectedCell.row === row ||
         selectedCell.column === column ||
@@ -241,11 +243,20 @@ function updateBoard() {
     cell.classList.toggle("related", Boolean(related && !selected));
     cell.classList.toggle(
       "same-number",
-      Boolean(value && selectedCell && value === getCellValue(selectedCell.row, selectedCell.column)),
+      Boolean(
+        focusLensEnabled &&
+          value &&
+          selectedCell &&
+          value === getCellValue(selectedCell.row, selectedCell.column),
+      ),
     );
     cell.classList.toggle(
       "error",
-      Boolean(entries[row][column] && entries[row][column] !== solution[row][column]),
+      Boolean(
+        !window.shinobiSettings?.relaxMode &&
+          entries[row][column] &&
+          entries[row][column] !== solution[row][column],
+      ),
     );
     cell.textContent = value;
     cell.setAttribute("aria-pressed", String(Boolean(selected)));
@@ -315,16 +326,19 @@ function enterNumber(number) {
 
   const previousValue = entries[row][column];
   entries[row][column] = number;
-  if (number !== solution[row][column] && number !== previousValue) {
+  const isCorrect = number === solution[row][column];
+  if (!isCorrect && number !== previousValue && !window.shinobiSettings?.relaxMode) {
     mistakes += 1;
     mistakesDisplay.textContent = String(mistakes);
     message.textContent = "Not quite — take another look at that square.";
     message.className = "game-message error-message";
-  } else {
+  } else if (isCorrect || window.shinobiSettings?.relaxMode) {
     message.textContent = "Nice and steady. Keep going.";
     message.className = "game-message";
+  } else {
+    message.textContent = "That square still needs another look.";
+    message.className = "game-message error-message";
   }
-
   updateBoard();
   checkForCompletion();
 }

@@ -1782,11 +1782,44 @@ h2 {
 }
 
 .setting-toggle input {
-  width: 20px;
-  height: 20px;
+  width: 44px;
+  height: 25px;
   flex: 0 0 auto;
+  position: relative;
+  appearance: none;
+  border: 1px solid #d5c9b9;
+  border-radius: 999px;
+  background: #e8e1d7;
   accent-color: #e85d24;
   cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.setting-toggle input::before {
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  background: #fffaf1;
+  box-shadow: 0 1px 3px rgb(36 41 44 / 22%);
+  content: "";
+  transition: transform 160ms ease;
+}
+
+.setting-toggle input:checked {
+  border-color: #c94e1f;
+  background: #e85d24;
+}
+
+.setting-toggle input:checked::before {
+  transform: translateX(19px);
+}
+
+.setting-toggle input:focus-visible {
+  outline: 3px solid #d88a5f;
+  outline-offset: 3px;
 }
 
 .settings-status {
@@ -2136,6 +2169,21 @@ body[data-theme="dark"] .setting-row select {
   border-color: #494747;
   color: #eee8dd;
   background: #202528;
+}
+
+body[data-theme="dark"] .setting-toggle input {
+  border-color: #625e58;
+  background: #494747;
+}
+
+body[data-theme="dark"] .setting-toggle input:checked {
+  border-color: #e85d24;
+  background: #c94e1f;
+}
+
+body[data-theme="light"] .setting-toggle input:checked {
+  border-color: #49664e;
+  background: #547866;
 }
 
 body[data-theme="dark"] .statistics-icon,

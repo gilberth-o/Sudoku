@@ -1,6 +1,9 @@
-# Sudoku
+# Stillmind Sudoku
 
-A browser-based Sudoku game built with plain HTML, CSS, and JavaScript.
+A calm, responsive Sudoku homepage and playable daily puzzle built with plain
+HTML, CSS, and JavaScript. Choose a square and enter numbers with the number
+pad or keyboard. Use **Check puzzle** to see your progress, or **Clear entries**
+to start again.
 
 ## Run locally
 

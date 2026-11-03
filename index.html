@@ -5,23 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="A Sudoku game for your browser."
+      content="Take a mindful break with a free daily Sudoku puzzle. No rush, just one square at a time."
     />
-    <title>Sudoku</title>
+    <meta name="theme-color" content="#f8f7f2" />
+    <title>Sudoku — a little space to think</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <main class="app">
-      <header class="app-header">
-        <p class="eyebrow">Take a moment</p>
-        <h1>Sudoku</h1>
-        <p class="intro">A little focus, one square at a time.</p>
-      </header>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Sudoku home">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span>still<span class="brand-name">mind</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#how-to-play">How to play</a>
+        <a class="nav-cta" href="#play">Today's puzzle <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
 
-      <section class="game" aria-label="Sudoku game">
-        <p class="placeholder">Your game board will go here.</p>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> A little pause in your day</p>
+          <h1 id="hero-title">A quieter kind<br />of <span>challenge.</span></h1>
+          <p class="hero-description">
+            Leave the noise behind for a few minutes. One thoughtful number at a time,
+            find your way through today's Sudoku.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#play" data-start-game>
+              Play today's puzzle <span aria-hidden="true">→</span>
+            </a>
+            <a class="text-link" href="#how-to-play">How it works <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="social-proof">
+            <span class="avatar-stack" aria-hidden="true"><i>M</i><i>J</i><i>A</i></span>
+            <span>A small daily ritual, loved by curious minds</span>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="A preview of today's Sudoku puzzle">
+          <div class="floating-note note-top"><span class="note-icon">✳</span> Take it at your pace</div>
+          <div class="preview-card">
+            <div class="preview-heading">
+              <span class="preview-label">YOUR DAILY RESET</span>
+              <span class="calendar-icon" aria-hidden="true">✳</span>
+            </div>
+            <div class="preview-grid" aria-hidden="true">
+              <span>5</span><span></span><span>3</span><span class="mini-given">7</span><span></span><span></span>
+              <span>6</span><span></span><span></span><span>1</span><span>9</span><span>5</span>
+              <span></span><span>9</span><span>8</span><span></span><span></span><span></span>
+              <span>8</span><span></span><span></span><span></span><span>6</span><span></span>
+              <span>4</span><span></span><span></span><span>8</span><span></span><span>3</span>
+              <span>7</span><span></span><span></span><span></span><span>2</span><span></span>
+            </div>
+            <div class="preview-footer">
+              <span><span class="status-dot"></span> A fresh start awaits</span>
+              <span class="preview-time">~ 8 min</span>
+            </div>
+          </div>
+          <div class="floating-note note-bottom"><span aria-hidden="true">☼</span> Your moment of focus</div>
+          <span class="art-sparkle sparkle-one" aria-hidden="true">✳</span>
+          <span class="art-sparkle sparkle-two" aria-hidden="true">✳</span>
+        </div>
+      </section>
+
+      <section class="play-section" id="play" aria-labelledby="play-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Your moment starts here</p>
+            <h2 id="play-title">Today's puzzle</h2>
+          </div>
+          <span class="difficulty-pill"><span aria-hidden="true">✳</span> Gentle</span>
+        </div>
+
+        <div class="game-card">
+          <div class="game-topline">
+            <span class="game-date">A fresh puzzle for today</span>
+            <div class="game-stats" aria-label="Game statistics">
+              <span><span aria-hidden="true">◷</span> <span id="timer">00:00</span></span>
+              <span><span aria-hidden="true">✦</span> <span id="mistakes">0</span> mistakes</span>
+            </div>
+          </div>
+          <div
+            class="sudoku-board"
+            id="sudoku-board"
+            role="group"
+            aria-label="Sudoku board"
+          ></div>
+          <div class="number-pad" aria-label="Choose a number">
+            <button type="button" class="number-button" data-number="1" aria-label="Enter 1">1</button>
+            <button type="button" class="number-button" data-number="2" aria-label="Enter 2">2</button>
+            <button type="button" class="number-button" data-number="3" aria-label="Enter 3">3</button>
+            <button type="button" class="number-button" data-number="4" aria-label="Enter 4">4</button>
+            <button type="button" class="number-button" data-number="5" aria-label="Enter 5">5</button>
+            <button type="button" class="number-button" data-number="6" aria-label="Enter 6">6</button>
+            <button type="button" class="number-button" data-number="7" aria-label="Enter 7">7</button>
+            <button type="button" class="number-button" data-number="8" aria-label="Enter 8">8</button>
+            <button type="button" class="number-button" data-number="9" aria-label="Enter 9">9</button>
+            <button type="button" class="erase-button" data-erase aria-label="Erase selected square">⌫</button>
+          </div>
+          <div class="game-bottom">
+            <p class="game-message" id="game-message" aria-live="polite">Choose a square and take your time.</p>
+            <div class="game-actions">
+              <button type="button" class="button button-quiet" id="clear-button">Clear entries</button>
+              <button type="button" class="button button-check" id="check-button">Check puzzle <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="how-section" id="how-to-play" aria-labelledby="how-title">
+        <div class="how-intro">
+          <p class="eyebrow">Simple by design</p>
+          <h2 id="how-title">A few quiet<br />minutes, just for you.</h2>
+        </div>
+        <div class="how-steps">
+          <article class="how-step">
+            <span class="step-number">01</span>
+            <div><h3>Pick a square</h3><p>Choose any empty cell on the board to get started.</p></div>
+          </article>
+          <article class="how-step">
+            <span class="step-number">02</span>
+            <div><h3>Find its number</h3><p>Each row, column, and 3 × 3 box needs one of every number, 1 to 9.</p></div>
+          </article>
+          <article class="how-step">
+            <span class="step-number">03</span>
+            <div><h3>Enjoy the moment</h3><p>No rush, no pressure. Just a little space to think.</p></div>
+          </article>
+        </div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#" aria-label="Stillmind home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span>still<span class="brand-name">mind</span></span>
+      </a>
+      <p>Made for a little more calm in your day.</p>
+      <a href="#play">Back to the puzzle ↑</a>
+    </footer>
   </body>
 </html>

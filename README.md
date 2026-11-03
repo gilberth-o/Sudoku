@@ -9,10 +9,10 @@ Play as often as you like: choose Easy, Medium, or Hard, then use **Next game**
 to get another uniquely solvable puzzle at the selected difficulty. Choose a
 square and enter numbers with the number pad or keyboard. Use **Check puzzle**
 to see your progress, or **Reset puzzle** to start again. Completed puzzles
-update your solved count, best time, and consecutive-day streak. Progress is
-stored in this browser on this device. Settings include light, dark, and
-shinobi themes, larger numbers, voice assistance, focus highlighting, and a
-relax mode.
+update overall stats and per-difficulty solved counts and best times, plus
+your consecutive-day streak. Progress is stored in this browser on this
+device. Settings include light, dark, and shinobi themes, larger numbers,
+voice assistance, focus highlighting, and a relax mode.
 
 ## Run locally
 

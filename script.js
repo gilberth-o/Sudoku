@@ -7,6 +7,11 @@ const DIFFICULTIES = {
   medium: { label: "Medium", clues: 32 },
   hard: { label: "Hard", clues: 28 },
 };
+const EMPTY_LEVEL_STATISTICS = () => ({
+  easy: { puzzlesSolved: 0, bestTimeSeconds: null },
+  medium: { puzzlesSolved: 0, bestTimeSeconds: null },
+  hard: { puzzlesSolved: 0, bestTimeSeconds: null },
+});
 
 const board = document.querySelector("#sudoku-board");
 const timerDisplay = document.querySelector("#timer");
@@ -293,17 +298,38 @@ function savePuzzleProgress(timeInSeconds) {
   const savedProgress = window.localStorage.getItem(PROGRESS_STORAGE_KEY);
   const progress = savedProgress
     ? JSON.parse(savedProgress)
-    : { completedDates: [], bestTimeSeconds: null };
+    : { completedDates: [], puzzlesSolved: 0, bestTimeSeconds: null };
 
   if (
     !progress ||
     !Array.isArray(progress.completedDates) ||
-    (progress.bestTimeSeconds !== null &&
-      (!Number.isInteger(progress.bestTimeSeconds) || progress.bestTimeSeconds < 0))
+    (progress.puzzlesSolved !== undefined &&
+      (!Number.isSafeInteger(progress.puzzlesSolved) || progress.puzzlesSolved < 0)) ||
+    (progress.bestTimeSeconds !== undefined &&
+      progress.bestTimeSeconds !== null &&
+      (!Number.isInteger(progress.bestTimeSeconds) || progress.bestTimeSeconds < 0)) ||
+    (progress.levels !== undefined &&
+      (!progress.levels || typeof progress.levels !== "object" || Array.isArray(progress.levels)))
   ) {
     throw new Error("Saved progress has an unexpected format.");
   }
 
+  const levels = { ...EMPTY_LEVEL_STATISTICS(), ...progress.levels };
+  for (const [levelName, stats] of Object.entries(levels)) {
+    if (
+      !stats ||
+      typeof stats !== "object" ||
+      (stats.puzzlesSolved !== undefined &&
+        (!Number.isSafeInteger(stats.puzzlesSolved) || stats.puzzlesSolved < 0)) ||
+      (stats.bestTimeSeconds !== undefined &&
+        stats.bestTimeSeconds !== null &&
+        (!Number.isInteger(stats.bestTimeSeconds) || stats.bestTimeSeconds < 0))
+    ) {
+      throw new Error(`Saved ${levelName} statistics have an unexpected format.`);
+    }
+  }
+
+  const levelStats = levels[difficulty];
   const today = getLocalDateString(new Date());
   const previousSolvedCount = Number.isSafeInteger(progress.puzzlesSolved)
     ? progress.puzzlesSolved
@@ -312,6 +338,15 @@ function savePuzzleProgress(timeInSeconds) {
     progress.completedDates.push(today);
   }
   progress.puzzlesSolved = previousSolvedCount + 1;
+  levelStats.puzzlesSolved = (levelStats.puzzlesSolved ?? 0) + 1;
+  if (
+    levelStats.bestTimeSeconds === null ||
+    levelStats.bestTimeSeconds === undefined ||
+    timeInSeconds < levelStats.bestTimeSeconds
+  ) {
+    levelStats.bestTimeSeconds = timeInSeconds;
+  }
+  progress.levels = levels;
   if (progress.bestTimeSeconds === null || timeInSeconds < progress.bestTimeSeconds) {
     progress.bestTimeSeconds = timeInSeconds;
   }

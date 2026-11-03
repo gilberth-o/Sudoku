@@ -33,12 +33,12 @@
         <p>See your achievements and track your improvement as you continue training.</p>
       </section>
 
-      <section class="statistics-card" aria-labelledby="statistics-title">
+      <section class="statistics-card overall-statistics" aria-labelledby="statistics-title">
         <div class="statistics-heading">
           <span class="statistics-icon" aria-hidden="true">▥</span>
           <div>
-            <h2 id="statistics-title">Your Statistics</h2>
-            <p>Overview of your completed puzzles.</p>
+            <h2 id="statistics-title">Overall Statistics</h2>
+            <p>Your combined results across every difficulty.</p>
           </div>
         </div>
         <div class="statistics-grid" aria-live="polite">
@@ -57,6 +57,58 @@
         </div>
         <p class="storage-note" id="storage-note" aria-live="polite">
           Your progress is saved on this device.
+        </p>
+      </section>
+
+      <section class="level-statistics" aria-labelledby="level-statistics-title">
+        <div class="level-statistics-heading">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Your training record</p>
+          <h2 id="level-statistics-title">Statistics by Level</h2>
+          <p>See how you're progressing at each difficulty.</p>
+        </div>
+        <div class="level-statistics-grid" aria-live="polite">
+          <article class="statistics-card level-statistics-card" aria-labelledby="easy-statistics-title">
+            <div class="level-card-heading">
+              <span class="level-badge level-easy" aria-hidden="true">01</span>
+              <div>
+                <h3 id="easy-statistics-title">Easy</h3>
+                <p>Start your training</p>
+              </div>
+            </div>
+            <div class="level-stats">
+              <div class="level-stat"><strong id="easy-solved">0</strong><span>Puzzles solved</span></div>
+              <div class="level-stat"><strong id="easy-best">—</strong><span>Best time</span></div>
+            </div>
+          </article>
+          <article class="statistics-card level-statistics-card" aria-labelledby="medium-statistics-title">
+            <div class="level-card-heading">
+              <span class="level-badge level-medium" aria-hidden="true">02</span>
+              <div>
+                <h3 id="medium-statistics-title">Medium</h3>
+                <p>Sharpen your focus</p>
+              </div>
+            </div>
+            <div class="level-stats">
+              <div class="level-stat"><strong id="medium-solved">0</strong><span>Puzzles solved</span></div>
+              <div class="level-stat"><strong id="medium-best">—</strong><span>Best time</span></div>
+            </div>
+          </article>
+          <article class="statistics-card level-statistics-card" aria-labelledby="hard-statistics-title">
+            <div class="level-card-heading">
+              <span class="level-badge level-hard" aria-hidden="true">03</span>
+              <div>
+                <h3 id="hard-statistics-title">Hard</h3>
+                <p>Master the challenge</p>
+              </div>
+            </div>
+            <div class="level-stats">
+              <div class="level-stat"><strong id="hard-solved">0</strong><span>Puzzles solved</span></div>
+              <div class="level-stat"><strong id="hard-best">—</strong><span>Best time</span></div>
+            </div>
+          </article>
+        </div>
+        <p class="level-history-note" id="level-history-note" hidden>
+          Difficulty records are collected from puzzles completed after this update.
         </p>
       </section>
 

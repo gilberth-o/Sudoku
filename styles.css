@@ -2229,3 +2229,192 @@ body[data-theme="dark"].focus-lens-off .sudoku-cell.same-number {
     font-size: 12px;
   }
 }
+
+.overall-statistics {
+  margin-bottom: 36px;
+}
+
+.level-statistics {
+  padding-bottom: 12px;
+}
+
+.level-statistics-heading {
+  margin-bottom: 18px;
+}
+
+.level-statistics-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.level-statistics-heading h2 {
+  margin-bottom: 5px;
+  font-size: 27px;
+}
+
+.level-statistics-heading > p:last-child {
+  margin-bottom: 0;
+  color: #716d68;
+  font-size: 13px;
+}
+
+.level-statistics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.level-statistics-card {
+  padding: 21px 20px 17px;
+  border-radius: 13px;
+}
+
+.level-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9e3d8;
+}
+
+.level-badge {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 11px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.level-easy {
+  color: #527b53;
+  background: #e7f0e2;
+}
+
+.level-medium {
+  color: #a45b2d;
+  background: #f7e9d8;
+}
+
+.level-hard {
+  color: #a14338;
+  background: #f5e1dc;
+}
+
+.level-card-heading h3 {
+  margin: 0 0 3px;
+  color: #292c2e;
+  font-family: Manrope, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.level-card-heading p {
+  margin: 0;
+  color: #716d68;
+  font-size: 10px;
+}
+
+.level-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 15px;
+}
+
+.level-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.level-stat + .level-stat {
+  padding-left: 13px;
+  border-left: 1px solid #e9e3d8;
+}
+
+.level-stat strong {
+  color: #29383a;
+  font-family: Manrope, sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.level-stat span {
+  color: #716d68;
+  font-size: 10px;
+}
+
+.level-history-note {
+  margin: 14px 0 0;
+  color: #82776d;
+  font-size: 11px;
+}
+
+.level-history-note[hidden] {
+  display: none;
+}
+
+body[data-theme="dark"] .level-card-heading {
+  border-color: #41474a;
+}
+
+body[data-theme="dark"] .level-card-heading h3,
+body[data-theme="dark"] .level-stat strong {
+  color: #eee8dd;
+}
+
+body[data-theme="dark"] .level-card-heading p,
+body[data-theme="dark"] .level-stat span,
+body[data-theme="dark"] .level-history-note,
+body[data-theme="dark"] .level-statistics-heading > p:last-child {
+  color: #bcb8af;
+}
+
+body[data-theme="dark"] .level-stat + .level-stat {
+  border-color: #41474a;
+}
+
+body[data-theme="dark"] .level-easy {
+  color: #b5d6a8;
+  background: #354337;
+}
+
+body[data-theme="dark"] .level-medium {
+  color: #efbd91;
+  background: #46382c;
+}
+
+body[data-theme="dark"] .level-hard {
+  color: #f0aaa0;
+  background: #493332;
+}
+
+@media (max-width: 760px) {
+  .level-statistics-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .level-statistics-card {
+    padding: 18px;
+  }
+
+  .level-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .overall-statistics {
+    margin-bottom: 29px;
+  }
+
+  .level-statistics-heading h2 {
+    font-size: 24px;
+  }
+
+  .level-statistics-card {
+    padding: 16px;
+  }
+}

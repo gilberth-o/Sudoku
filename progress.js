@@ -9,13 +9,15 @@ const storageNote = document.querySelector("#storage-note");
 function readProgress() {
   const savedProgress = window.localStorage.getItem(PROGRESS_STORAGE_KEY);
   if (!savedProgress) {
-    return { completedDates: [], bestTimeSeconds: null };
+    return { completedDates: [], puzzlesSolved: 0, bestTimeSeconds: null };
   }
 
   const progress = JSON.parse(savedProgress);
   if (
     !progress ||
     !Array.isArray(progress.completedDates) ||
+    (progress.puzzlesSolved !== undefined &&
+      (!Number.isSafeInteger(progress.puzzlesSolved) || progress.puzzlesSolved < 0)) ||
     (progress.bestTimeSeconds !== null &&
       (!Number.isInteger(progress.bestTimeSeconds) || progress.bestTimeSeconds < 0))
   ) {
@@ -26,6 +28,9 @@ function readProgress() {
     completedDates: progress.completedDates.filter(
       (date) => typeof date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(date),
     ),
+    puzzlesSolved: Number.isSafeInteger(progress.puzzlesSolved)
+      ? progress.puzzlesSolved
+      : progress.completedDates.length,
     bestTimeSeconds: progress.bestTimeSeconds,
   };
 }
@@ -70,7 +75,7 @@ function formatTime(totalSeconds) {
 
 try {
   const progress = readProgress();
-  puzzlesSolvedDisplay.textContent = String(progress.completedDates.length);
+  puzzlesSolvedDisplay.textContent = String(progress.puzzlesSolved);
   bestTimeDisplay.textContent = formatTime(progress.bestTimeSeconds);
   currentStreakDisplay.textContent = String(getCurrentStreak(progress.completedDates));
 } catch (error) {

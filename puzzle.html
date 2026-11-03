@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Take on today's Shinobi Sudoku mission. Focus your mind, find the numbers, and complete the puzzle."
+      content="Play Shinobi Sudoku whenever you like. Choose a difficulty, focus your mind, and complete as many puzzles as you want."
     />
     <meta name="theme-color" content="#f5eee2" />
-    <title>Today's Mission — Shinobi Sudoku</title>
+    <title>Play Sudoku — Shinobi Sudoku</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
@@ -27,27 +27,33 @@
 
     <main>
       <section class="mission-intro" aria-labelledby="mission-title">
-        <p class="eyebrow"><span class="eyebrow-dot"></span> Focus your chakra</p>
-        <h1 id="mission-title">Today's <span>mission.</span></h1>
-        <p>Stay sharp, trust your training, and fill every square.</p>
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Play at your own pace</p>
+        <h1 id="mission-title">Choose your <span>challenge.</span></h1>
+        <p>Pick a difficulty, solve a puzzle, then start another whenever you're ready.</p>
       </section>
 
       <section class="play-section" id="play" aria-labelledby="play-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Your training begins now</p>
-            <h2 id="play-title">The daily challenge</h2>
+            <p class="eyebrow">Your training, your pace</p>
+            <h2 id="play-title">Sudoku challenge</h2>
           </div>
-          <span class="difficulty-pill"><span aria-hidden="true">✳</span> Genin level</span>
+          <span class="difficulty-pill"><span aria-hidden="true">✳</span> <span id="difficulty-label">Medium</span></span>
         </div>
 
         <div class="game-card">
           <div class="game-topline">
-            <span class="game-date">Today's shinobi training</span>
+            <span class="game-date" id="game-number">Puzzle 1</span>
             <div class="game-stats" aria-label="Game statistics">
               <span><span aria-hidden="true">◷</span> <span id="timer">00:00</span></span>
               <span><span aria-hidden="true">✦</span> <span id="mistakes">0</span> mistakes</span>
             </div>
+          </div>
+          <div class="difficulty-picker" role="group" aria-label="Choose puzzle difficulty">
+            <span class="difficulty-picker-label">Difficulty</span>
+            <button type="button" class="difficulty-option" data-difficulty="easy" aria-pressed="false">Easy</button>
+            <button type="button" class="difficulty-option" data-difficulty="medium" aria-pressed="true">Medium</button>
+            <button type="button" class="difficulty-option" data-difficulty="hard" aria-pressed="false">Hard</button>
           </div>
           <div
             class="sudoku-board"
@@ -70,7 +76,8 @@
           <div class="game-bottom">
             <p class="game-message" id="game-message" aria-live="polite">Choose a square and make your move.</p>
             <div class="game-actions">
-              <button type="button" class="button button-quiet" id="clear-button">Reset mission</button>
+              <button type="button" class="button button-quiet" id="clear-button">Reset puzzle</button>
+              <button type="button" class="button button-next" id="next-button">Next game <span aria-hidden="true">↗</span></button>
               <button type="button" class="button button-check" id="check-button">Check puzzle <span aria-hidden="true">→</span></button>
             </div>
           </div>
